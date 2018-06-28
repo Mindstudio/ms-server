@@ -15,12 +15,12 @@
           >Articles
         </router-link>
         <router-link
-          :to="{ name: 'library' }"
+          :to="{ name: 'books' }"
           class="py-1 no-underline text-grey-dark hover:text-purple-dark tracking-wide"
           >Books
         </router-link>
         <router-link
-          :to="{ name: 'library' }"
+          :to="{ name: 'courses' }"
           class="py-1 no-underline text-grey-dark hover:text-purple-dark tracking-wide"
           >Courses
         </router-link>
@@ -30,17 +30,17 @@
           >Guides
         </router-link>
         <router-link
-          :to="{ name: 'library' }"
+          :to="{ name: 'podcasts' }"
           class="py-1 no-underline text-grey-dark hover:text-purple-dark tracking-wide"
           >Podcasts
         </router-link>
         <router-link
-          :to="{ name: 'library' }"
+          :to="{ name: 'sites' }"
           class="py-1 no-underline text-grey-dark hover:text-purple-dark tracking-wide"
           >Sites
         </router-link>
         <router-link
-          :to="{ name: 'library' }"
+          :to="{ name: 'videos' }"
           class="py-1 no-underline text-grey-dark hover:text-purple-dark tracking-wide"
           >Videos
         </router-link>
