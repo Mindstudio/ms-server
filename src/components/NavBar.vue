@@ -8,7 +8,7 @@
           >mindstud.io
         </router-link>
       </div>
-      <div class="w-2/5 flex flex-row justify-between text-xs text-right">
+      <div class="w-1/2 flex flex-row justify-between text-xs text-right">
         <router-link
           :to="{ name: 'articles' }"
           class="py-1 no-underline text-grey-dark hover:text-purple-dark tracking-wide"
@@ -35,14 +35,19 @@
           >Podcasts
         </router-link>
         <router-link
-          :to="{ name: 'sites' }"
+          :to="{ name: 'software' }"
           class="py-1 no-underline text-grey-dark hover:text-purple-dark tracking-wide"
-          >Sites
+          >Software
         </router-link>
         <router-link
           :to="{ name: 'videos' }"
           class="py-1 no-underline text-grey-dark hover:text-purple-dark tracking-wide"
           >Videos
+        </router-link>
+        <router-link
+          :to="{ name: 'websites' }"
+          class="py-1 no-underline text-grey-dark hover:text-purple-dark tracking-wide"
+          >Websites
         </router-link>
       </div>
     </div>

@@ -28,14 +28,6 @@
       </div>
     </div>
 
-    <div class="bg-grey-lighter h-48 flex flex-row justify-between">
-      <div class="w-3/4 border">
-        links
-      </div>
-      <div class="w-1/4 border">
-        connect
-      </div>
-    </div>
   </div>
 </template>
 

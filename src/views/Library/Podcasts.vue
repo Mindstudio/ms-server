@@ -20,7 +20,6 @@
               <div class="w-1/2 p-4 flex flex-col justify-between">
                 <div class="flex flex-row justify-between items-center">
                   <h4 class="text-xl text-grey-darkest font-medium">podcast.latest</h4>
-                  <p class="text-xs text-grey">MS</p>
                 </div>
                 <p class="w-19/10 text-sm text-grey-darker leading-normal">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <div class="flex flex-row justify-between items-center">

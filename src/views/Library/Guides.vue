@@ -7,15 +7,15 @@
     <!-- TODO: Search, filter, sorting -->
 
     <div class="p-8">
-      <div class="flex flex-col px-6 py-4 border border-dashed border-grey-lighter">
-        <div class="flex flex-row px-2 py-4 border-b border-dashed border-grey-lightest" v-for="i in 9" :key="i.id">
-          <div class="w-3/4 h-64 flex flex-row border border-grey-lighter shadow">
-            <div class="w-2/5 bg-grey-lightest">
+      <div class="flex flex-row flex-wrap px-6 py-4 border border-dashed border-grey-lighter">
+        <div class="w-1/2 flex flex-row flex-wrap px-2 py-4 border-b border-dashed border-grey-lightest" v-for="i in 9" :key="i.id">
+          <div class="h-64 flex flex-row border border-grey-lighter shadow">
+            <div class="w-9/20 bg-grey-lightest">
               img
             </div>
-            <div class="p-4 flex flex-col justify-between">
+            <div class="w-11/20 p-4 flex flex-col justify-between">
               <h4 class="text-xl text-grey-darkest font-medium">guide.title</h4>
-              <p class="w-19/10 text-sm text-grey-darker leading-normal">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est.</p>
+              <p class="w-19/10 text-sm text-grey-darker leading-normal">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
               <h5 class="text-grey-dark font-medium">guide.author</h5>
               <div class="w-1/2 content-end flex flex-row justify-between">
                 <p
@@ -24,9 +24,6 @@
                   :key="topic.id">#topic</p>
               </div>
             </div>
-          </div>
-          <div class="w-1/4 h-64 p-4">
-              <p class="text-sm text-grey-darker font-light">Discover:</p>
           </div>
         </div>
       </div>

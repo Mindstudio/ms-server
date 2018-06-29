@@ -9,8 +9,9 @@ import Books from '@/views/Library/Books'
 import Courses from '@/views/Library/Courses'
 import Guides from '@/views/Library/Guides'
 import Podcasts from '@/views/Library/Podcasts'
-import Sites from '@/views/Library/Sites'
+import Software from '@/views/Library/Software'
 import Videos from '@/views/Library/Videos'
+import Websites from '@/views/Library/Websites'
 
 Vue.use(Router)
 
@@ -53,14 +54,19 @@ export default new Router({
           component: Podcasts
         },
         {
-          name: 'sites',
-          path: '/sites',
-          component: Sites
+          name: 'software',
+          path: '/software',
+          component: Software
         },
         {
           name: 'videos',
           path: '/videos',
           component: Videos
+        },
+        {
+          name: 'websites',
+          path: '/websites',
+          component: Websites
         }
       ]
     }

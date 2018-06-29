@@ -10,10 +10,10 @@
       <div class="flex flex-col px-6 py-4 border border-dashed border-grey-lighter">
         <div class="flex flex-row px-2 py-4 border-b border-dashed border-grey-lightest" v-for="i in 9" :key="i.id">
           <div class="w-3/4 h-64 flex flex-row border border-grey-lighter shadow">
-            <div class="w-2/5 bg-grey-lightest">
+            <div class="w-7/20 bg-grey-lightest">
               img
             </div>
-            <div class="p-4 flex flex-col justify-between">
+            <div class="w-13/20 p-4 flex flex-col justify-between">
               <div class="flex flex-row justify-between items-center">
                 <h4 class="text-xl text-grey-darkest font-medium">article.title</h4>
                 <p class="text-xs text-grey">MS</p>
