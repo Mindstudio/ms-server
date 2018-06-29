@@ -4,6 +4,13 @@
       <h3 class="relative text-3xl text-grey tracking-wide font-light">22nd Century Preparation</h3>
     </div>
 
+    <h4>Total Items: {{ projects.length }}</h4>
+
+    <div class="border p-4 w-1/4" v-for="item in projects" :key="item._id">
+      <p class="text-base text-grey-darker">{{ item.name }}</p>
+      <p class="text-sm text-grey">{{ item.info }}</p>
+    </div>
+
     <!-- TODO: Search, filter, sorting -->
 
     <div class="p-8">
@@ -41,8 +48,15 @@
 </template>
 
 <script>
+// import { mapState } from 'vuex'
+
 export default {
-  name: 'articles'
+  name: 'articles',
+  computed: {
+    projects () {
+      return this.$store.state.projects.items
+    }
+  }
 }
 </script>
 

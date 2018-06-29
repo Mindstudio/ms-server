@@ -1,5 +1,7 @@
 // Packages
 const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const mongoose = require('mongoose');
 
 // Model imports
@@ -17,7 +19,8 @@ db.once("open", function(callback){ console.log("Connection Successful") });
 
 // Express app config
 const app = express();
-
+app.use(cors());
+app.use(bodyParser.json())
 // ------------------------------------------------ Server CRUD API
 
 // READ: all items

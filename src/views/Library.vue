@@ -6,7 +6,10 @@
 
 <script>
 export default {
-  name: 'library'
+  name: 'library',
+  mounted: function () {
+    this.$store.dispatch('load_items')
+  }
 }
 </script>
 
