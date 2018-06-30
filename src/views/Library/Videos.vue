@@ -8,18 +8,18 @@
 
     <div class="p-8">
       <div class="flex flex-row flex-wrap p-6 border border-dashed border-grey-lighter">
-        <div class="w-1/3 p-2" v-for="i in 18" :key="i.id">
+        <div class="w-1/3 p-2" v-for="video in videos" :key="video._id">
           <div class="h-64 flex flex-col justify-between border border-grey-lighter shadow">
             <!-- TODO: Relative Hover => video Details (description, tages, related) -->
             <div class="h-48 text-xs p-2">
-              video{{ i }}.title-img
+              {{ video.title }}-img
             </div>
             <div class="flex flex-row justify-between p-2 bg-grey-lightest border-t border-grey-lighter">
               <h5 class="w-3/4 text-xs text-grey-dark font-medium leading-tight">
-                video{{ i }}.topic
+                {{ video.topic }}
               </h5>
               <!-- TODO: Date since release / update -->
-              <p class="w-1/4 text-xs text-right text-grey">#{{ i }}.date</p>
+              <p class="w-1/4 text-xs text-right text-grey">date</p>
             </div>
           </div>
         </div>
@@ -36,6 +36,12 @@
 
 <script>
 export default {
+  name: 'videos',
+  computed: {
+    videos () {
+      return this.$store.state.videos
+    }
+  }
 }
 </script>
 

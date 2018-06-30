@@ -8,18 +8,18 @@
 
     <div class="p-8">
       <div class="flex flex-row flex-wrap p-6 border border-dashed border-grey-lighter">
-        <div class="w-1/3 p-2" v-for="i in 18" :key="i.id">
+        <div class="w-1/3 p-2" v-for="site in websites" :key="site._id">
           <div class="h-64 flex flex-col justify-between border border-grey-lighter shadow">
             <!-- TODO: Relative Hover => website Details (description, tages, related) -->
             <div class="h-48 text-xs p-2">
-              website{{ i }}.img
+              {{ site.img }}
             </div>
             <div class="flex flex-row justify-between p-2 bg-grey-lightest border-t border-grey-lighter">
               <h5 class="w-3/4 text-xs text-grey-dark font-medium leading-tight">
-                website{{ i }}.name-url
+                {{ site.name }}
               </h5>
               <!-- TODO: Date since release / update -->
-              <p class="w-1/4 text-xs text-right text-grey">#{{ i }}.topic</p>
+              <p class="w-1/4 text-xs text-right text-grey">{{ site.topic }}</p>
             </div>
           </div>
         </div>
@@ -36,6 +36,12 @@
 
 <script>
 export default {
+  name: 'websites',
+  computed: {
+    websites () {
+      return this.$store.state.websites
+    }
+  }
 }
 </script>
 

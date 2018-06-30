@@ -8,17 +8,17 @@
 
     <div class="p-8">
       <div class="flex flex-row flex-wrap p-6 border border-dashed border-grey-lighter">
-        <div class="w-1/4 p-2" v-for="i in 18" :key="i.id">
+        <div class="w-1/4 p-2" v-for="book in books" :key="book._id">
           <div class="h-64 flex flex-col justify-between border border-grey-lighter shadow">
             <!-- TODO: Relative Hover => Book Details (description, tages, related) -->
             <div class="h-48 text-xs p-2">
-              book{{ i }}.img
+              {{ book.title }}.img
             </div>
             <div class="flex flex-row justify-between p-2 bg-grey-lightest border-t border-grey-lighter">
               <h5 class="text-xs text-grey-dark font-medium">
-                book{{ i }}.author
+                {{ book.author }}
               </h5>
-              <p class="text-xs text-grey">#book{{ i }}.topic</p>
+              <p class="text-xs text-grey">{{ book.topic }}</p>
             </div>
           </div>
         </div>
@@ -35,6 +35,12 @@
 
 <script>
 export default {
+  name: 'books',
+  computed: {
+    books () {
+      return this.$store.state.books
+    }
+  }
 }
 </script>
 
