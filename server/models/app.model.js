@@ -2,11 +2,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const appSchema = new Schema({
-  title: String,
-  text: String,
-  author: String,
-  site: String,
-  topic: String
+  name: String,
+  intro: String,
+  site: Object,
+  release: String,
+  network: Object,
+  price: Number,
+  open_source: Boolean,
+  license: String,
+  reqs: Object,
+  topics: Array
 });
 
 const App = mongoose.model('app', appSchema, 'apps');

@@ -3,10 +3,11 @@ const Schema = mongoose.Schema;
 
 const podcastSchema = new Schema({
   title: String,
-  text: String,
-  author: String,
-  site: String,
-  episode: String,
+  intro: Array,
+  subject: String,
+  url: String,
+  hosts: Array,
+  episodes: Array,
   topics: Array
 });
 

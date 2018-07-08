@@ -3,8 +3,14 @@ const Schema = mongoose.Schema;
 
 const guideSchema = new Schema({
   title: String,
-  text: String,
-  author: String,
+  url: String,
+  authors: Array,
+  updated: String,
+  intro: String,
+  text: Object,
+  subject: String,
+  skills: Array,
+  software: Array,
   topics: Array
 });
 

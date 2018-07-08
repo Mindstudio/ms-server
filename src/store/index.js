@@ -17,6 +17,30 @@ export default new Vuex.Store({
   },
 
   getters: {
+    getArticleById: (state) => (id) => {
+      return state.articles.find(article => article._id === id)
+    },
+    getBookById: (state) => (id) => {
+      return state.books.find(book => book._id === id)
+    },
+    getCourseById: (state) => (id) => {
+      return state.courses.find(course => course._id === id)
+    },
+    getGuideById: (state) => (id) => {
+      return state.guides.find(guide => guide._id === id)
+    },
+    getPodcastById: (state) => (id) => {
+      return state.podcasts.find(podcast => podcast._id === id)
+    },
+    getAppById: (state) => (id) => {
+      return state.apps.find(app => app._id === id)
+    },
+    getVideoById: (state) => (id) => {
+      return state.videos.find(video => video._id === id)
+    },
+    getWebsiteById: (state) => (id) => {
+      return state.websites.find(website => website._id === id)
+    }
   },
 
   actions: {

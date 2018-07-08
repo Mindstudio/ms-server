@@ -17,14 +17,14 @@ const Website = require('../models/website.model.js');
 
 // Model declarations
   // const itemModel = 'name info';
-const articleModel = 'title text author site';
-const bookModel = 'title author topic';
-const courseModel = 'title topic';
-const guideModel = 'title text author topics';
-const podcastModel = 'title text author site episode topics';
-const appModel = 'title text author site topic';
-const videoModel = 'title topic';
-const websiteModel = 'name img url topic';
+const articleModel = 'title intro text subject reading_time url authors publisher topics';
+const bookModel = 'title intro text authors year_pub subject topics';
+const courseModel = 'title intro url details format effort skills price text objectives instructors topics';
+const guideModel = 'title url authors updated intro text subject skills software topics';
+const podcastModel = 'title intro subject url hosts episodes topics';
+const appModel = 'name intro site release network price open_source license reqs topics';
+const videoModel = 'title url subject date_pub series hosts topics';
+const websiteModel = 'name url subject intro img founders year_pub network topics';
 
 // Mongoose config
 mongoose.connect('mongodb://localhost:27017/mindstudio');
