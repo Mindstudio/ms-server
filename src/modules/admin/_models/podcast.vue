@@ -1,11 +1,12 @@
 <template lang="html">
   <div class="">
-    createBook
+    podcast
   </div>
 </template>
 
 <script>
 export default {
+  name: 'create-podcast'
 }
 </script>
 

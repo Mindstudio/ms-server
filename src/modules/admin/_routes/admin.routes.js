@@ -2,8 +2,6 @@ import adminContainer from '@/containers/Admin'
 import adminMain from '../_views/adminMain'
 
 import createView from '../_views/createView'
-import createArticle from '../_models/createArticle'
-import createBook from '../_models/createBook'
 
 import readView from '../_views/readView'
 import readItem from '../_views/readItem'
@@ -22,19 +20,7 @@ export default [
           {
             name: 'create',
             path: '/create',
-            component: createView,
-            children: [
-              {
-                name: 'create-article',
-                path: 'article',
-                component: createArticle
-              },
-              {
-                name: 'create-book',
-                path: 'book',
-                component: createBook
-              }
-            ]
+            component: createView
           },
           {
             name: 'read',

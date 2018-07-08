@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'create-article'
 }
 </script>
 
