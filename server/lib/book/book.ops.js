@@ -10,9 +10,9 @@ exports.createBook = function(req, res) {
 
   book.save(function(err) {
     if (err)
-    res.send(err);
+      res.send(err);
 
-    res.json({ message: 'Book created.' });
+    res.json({ success: true, message: 'Book created.' });
   });
 };
 
@@ -20,6 +20,7 @@ exports.findBooks = function(req, res) {
   Book.find(function(err, books) {
     if (err)
       res.send(err);
+
     res.json(books);
   });
 };
@@ -28,6 +29,7 @@ exports.findBookById = function(req, res) {
   Book.findById(req.params._id, function(err, book) {
     if (err)
       res.send(err);
+
     res.json(book);
   });
 };
@@ -46,7 +48,8 @@ exports.updateBook = function(req, res) {
     book.save(function(err) {
       if (err)
         res.send(err);
-      res.json({ message: 'Book updated.'});
+
+      res.json({ success: true, message: 'Book updated.'});
     });
   });
 };
@@ -57,6 +60,7 @@ exports.deleteBook = function(req, res) {
   }, function(err, book) {
     if (err)
       res.send(err);
-    res.json({ message: 'Book deleted.'})
+
+    res.json({ success: true, message: 'Book deleted.'})
   })
 };
