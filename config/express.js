@@ -26,20 +26,10 @@ app.use(cors());
 // ---------------------------------------------------- Router Config
 const routes = require('../server/index.routes');
 
-// const router = app.Router();
-//
-// // Middleware for all requests
-// router.use(function(req, res, next) {
-//   // TODO: logging
-//   console.log('Server working');
-//   next();
-// });
-//
-// Test router
-routes.get('/', function(req, res) {
-  res.json({ message: 'This is the Mindstudio API test'});
+// express test route | fallback test if index test route fails
+routes.get('/test', function(req, res) {
+  res.json({ message: 'Mindstudio API: express test route'});
 })
-
 
 // Mount all routes on /api path
 app.use('/api', routes);

@@ -9,7 +9,7 @@ const ops = require('./book.ops.js');
 // Middleware for all requests
 books.use(function(req, res, next) {
   // TODO: add middleware = logs, analytics, auth, etc
-  console.log('Server: Book Routes LIVE');
+  console.log('LIVE: book routes');
   next();
 });
 
@@ -27,7 +27,7 @@ books.route('/book/:_id').delete(ops.deleteBook);
 
 // ------------------------- Test route
 books.get('/test', function(req, res) {
-  res.json({ message: 'This is the Mindstudio API: Library / Books Routing'});
+  res.json({ message: 'Mindstudio API: books test route'});
 });
 
 
