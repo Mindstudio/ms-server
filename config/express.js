@@ -1,48 +1,42 @@
+// ---------------------------------------------------- Base Config
 const express = require('express');
+const app = express();
+
+const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const logger = require('morgan');
-const helmet = require('helmet');
 
-const routes = require('../index.route');
-const config = require('./config');
+// Configure port
+const port = process.env.PORT || 3000;
 
-const app = express();
+// Configure morgan as error logger
+app.use(logger('combined'));
 
-// use logger if in dev mode
-if (config.env === 'dev') {
-  app.use(logger('dev'));
-}
-
-// parse body params, attach to req.body
-app.use(bodyParser.json());
+// Configure app to parse body params
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-// set various HTTP headers for security
+// Configure various HTTP headers for security
 app.use(helmet());
 
-// enable CORS - Cross Origin Resource Sharing
+// Configure Cross Origin Resource Sharing
 app.use(cors());
 
-// mount all routes on /api path
-app.use('/api', routes);
+// ---------------------------------------------------- Router Config
+const router = express.Router();
 
-// catch 404 and forward to error handler TODO: move to config/APIerror.js
-app.use(function(req, res, next) {
-  const err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
+// Test router
+router.get('/', function(req, res) {
+  res.json({ message: 'This is the Mindstudio API'});
+})
 
-// error handler TODO: move to config/APIerror.js
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in dev
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'dev' ? err : {};
+// Mount all routes on /api path
+app.use('/api', router);
 
-  // render error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+// ---------------------------------------------------- Initiate Server
+// Start the Server
+app.listen(port);
+console.log(`Express server listening on port ${port}`);
 
 module.exports = app;
