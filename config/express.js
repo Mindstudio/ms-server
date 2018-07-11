@@ -1,5 +1,6 @@
 // ---------------------------------------------------- Base Config
 const app = require('express')();
+const config = require('./config');
 
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
@@ -7,10 +8,11 @@ const cors = require('cors');
 const logger = require('morgan');
 
 // Configure port
-const port = process.env.PORT || 3000;
+const port = config.port || 3000;
+const env = config.env;
 
 // Configure morgan as error logger
-app.use(logger('combined'));
+app.use(logger('dev'));
 
 // Configure app to parse body params
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -35,7 +37,8 @@ app.use('/api', routes);
 
 // ---------------------------------------------------- Initiate Server
 // Start the Server
-app.listen(port);
-console.log(`Express server listening on port ${port}`);
+app.listen(port, () => {
+  console.log(`Express ${env} server LIVE on port ${port}`);
+});
 
 module.exports = app;

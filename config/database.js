@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 
+const config = require('./config');
+
 // ---------------------------------------------------- DB Config
 // mongo database
-mongoose.connect(process.env.DB);
+mongoose.connect(config.mongo.host);
 
 // set global.Promise
 mongoose.Promise = global.Promise;
