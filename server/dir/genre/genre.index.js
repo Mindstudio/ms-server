@@ -7,7 +7,7 @@ const Genre = require('./genre.model');
 const ops = require('./genre.ops.js');
 
 // Middleware for all requests
-genres.use(function(req, res, next) {
+genres.use((req, res, next) => {
   // TODO: add middleware = logs, analytics, auth, etc
   console.log('LIVE: genre routes');
   next();
@@ -26,7 +26,7 @@ genres.route('/genre/:_id').put(ops.updateGenre);
 genres.route('/genre/:_id').delete(ops.deleteGenre);
 
 // ------------------------- Test route
-genres.get('/test', function(req, res) {
+genres.get('/test', (req, res) => {
   res.json({ message: 'Mindstudio API: genres test route'});
 });
 

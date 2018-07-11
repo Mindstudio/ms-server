@@ -1,11 +1,12 @@
 const routes = require('express').Router();
 
 const books = require('./lib/book/book.index')
-const authors = require('./lib/author/author.index')
-const genres = require('./lib/genre/genre.index')
+
+const authors = require('./dir/author/author.index')
+const genres = require('./dir/genre/genre.index')
 
 // Middleware for all requests
-routes.use(function(req, res, next) {
+routes.use((req, res, next) => {
   // TODO: add middleware = logs, analytics, auth, etc
   console.log('LIVE: index routes');
   next();
@@ -16,12 +17,12 @@ routes.get('/', (req, res) => {
 });
 
 // Test router
-routes.get('/test', function(req, res) {
+routes.get('/test', (req, res) => {
   res.json({ message: 'Mindstudio API: index test route'});
 });
 
 // Test router
-routes.get('/status', function(req, res) {
+routes.get('/status', (req, res) => {
   res.json({ message: 'Mindstudio API: Status Report '});
 });
 

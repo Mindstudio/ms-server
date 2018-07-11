@@ -13,16 +13,12 @@ const AuthorSchema = new Schema(
 // Virtual for author's full name
 AuthorSchema
 .virtual('name')
-.get(function () {
-  return this.last_name + ', ' + this.first_name;
-});
+.get(() => `${this.first_name} ${this.last_name}`);
 
 // Virtual for author's URL
 AuthorSchema
 .virtual('url')
-.get(function () {
-  return '/library/author/' + this._id;
-});
+.get(() => `/dir/authors/author/${this._id}`);
 
 //Export model
 const Author = mongoose.model('Author', AuthorSchema, 'Authors');

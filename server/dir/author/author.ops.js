@@ -1,13 +1,13 @@
 const Author = require('./author.model');
 
-exports.createAuthor = function(req, res) {
+exports.createAuthor = (req, res) => {
   let author = new Author();
   author.first_name = req.body.first_name;
   author.last_name = req.body.last_name;
   author.date_of_birth = req.body.date_of_birth;
   author.date_of_death = req.body.date_of_death;
 
-  author.save(function(err) {
+  author.save((err) => {
     if (err)
       res.send(err);
 
@@ -15,8 +15,8 @@ exports.createAuthor = function(req, res) {
   });
 };
 
-exports.findAuthors = function(req, res) {
-  Author.find(function(err, authors) {
+exports.findAuthors = (req, res) => {
+  Author.find((err, authors) => {
     if (err)
       res.send(err);
 
@@ -24,8 +24,8 @@ exports.findAuthors = function(req, res) {
   });
 };
 
-exports.findAuthorById = function(req, res) {
-  Author.findById(req.params._id, function(err, author) {
+exports.findAuthorById = (req, res) => {
+  Author.findById(req.params._id, (err, author) => {
     if (err)
       res.send(err);
 
@@ -33,8 +33,8 @@ exports.findAuthorById = function(req, res) {
   });
 };
 
-exports.updateAuthor = function(req, res) {
-  Author.findById(req.params._id, function(err, author) {
+exports.updateAuthor = (req, res) => {
+  Author.findById(req.params._id, (err, author) => {
     if (err)
       res.send(err);
 
@@ -43,7 +43,7 @@ exports.updateAuthor = function(req, res) {
     author.date_of_birth = req.body.date_of_birth;
     author.date_of_death = req.body.date_of_death;
 
-    author.save(function(err) {
+    author.save((err) => {
       if (err)
         res.send(err);
 
@@ -52,10 +52,10 @@ exports.updateAuthor = function(req, res) {
   });
 };
 
-exports.deleteAuthor = function(req, res) {
+exports.deleteAuthor = (req, res) => {
   Author.remove({
     _id: req.params._id
-  }, function(err, author) {
+  }, (err, author) => {
     if (err)
       res.send(err);
 

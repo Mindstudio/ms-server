@@ -1,10 +1,10 @@
 const Genre = require('./genre.model');
 
-exports.createGenre = function(req, res) {
+exports.createGenre = (req, res) => {
   let genre = new Genre();
   genre.name = req.body.name;
 
-  genre.save(function(err) {
+  genre.save((err) => {
     if (err)
       res.send(err);
 
@@ -12,8 +12,8 @@ exports.createGenre = function(req, res) {
   });
 };
 
-exports.findGenres = function(req, res) {
-  Genre.find(function(err, genres) {
+exports.findGenres = (req, res) => {
+  Genre.find((err, genres) => {
     if (err)
       res.send(err);
 
@@ -21,8 +21,8 @@ exports.findGenres = function(req, res) {
   });
 };
 
-exports.findGenreById = function(req, res) {
-  Genre.findById(req.params._id, function(err, genre) {
+exports.findGenreById = (req, res) => {
+  Genre.findById(req.params._id, (err, genre) => {
     if (err)
       res.send(err);
 
@@ -30,14 +30,14 @@ exports.findGenreById = function(req, res) {
   });
 };
 
-exports.updateGenre = function(req, res) {
-  Genre.findById(req.params._id, function(err, genre) {
+exports.updateGenre = (req, res) => {
+  Genre.findById(req.params._id, (err, genre) => {
     if (err)
       res.send(err);
 
     genre.name = req.body.name;
 
-    genre.save(function(err) {
+    genre.save((err) => {
       if (err)
         res.send(err);
 
@@ -46,10 +46,10 @@ exports.updateGenre = function(req, res) {
   });
 };
 
-exports.deleteGenre = function(req, res) {
+exports.deleteGenre = (req, res) => {
   Genre.remove({
     _id: req.params._id
-  }, function(err, genre) {
+  }, (err, genre) => {
     if (err)
       res.send(err);
 

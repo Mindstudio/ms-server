@@ -22,12 +22,11 @@ app.use(helmet());
 // Configure Cross Origin Resource Sharing
 app.use(cors());
 
-
 // ---------------------------------------------------- Router Config
 const routes = require('../server/index.routes');
 
 // express test route | fallback test if index test route fails
-routes.get('/test', function(req, res) {
+routes.get('/test', (req, res) => {
   res.json({ message: 'Mindstudio API: express test route'});
 })
 

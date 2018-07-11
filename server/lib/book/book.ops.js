@@ -1,6 +1,6 @@
 const Book = require('./book.model');
 
-exports.createBook = function(req, res) {
+exports.createBook = (req, res) => {
   let book = new Book();
   book.title = req.body.title;
   book.author = req.body.author;
@@ -8,7 +8,7 @@ exports.createBook = function(req, res) {
   book.isbn = req.body.isbn;
   book.genre = req.body.genre;
 
-  book.save(function(err) {
+  book.save((err) => {
     if (err)
       res.send(err);
 
@@ -16,8 +16,8 @@ exports.createBook = function(req, res) {
   });
 };
 
-exports.findBooks = function(req, res) {
-  Book.find(function(err, books) {
+exports.findBooks = (req, res) => {
+  Book.find((err, books) => {
     if (err)
       res.send(err);
 
@@ -25,8 +25,8 @@ exports.findBooks = function(req, res) {
   });
 };
 
-exports.findBookById = function(req, res) {
-  Book.findById(req.params._id, function(err, book) {
+exports.findBookById = (req, res) => {
+  Book.findById(req.params._id, (err, book) => {
     if (err)
       res.send(err);
 
@@ -34,8 +34,8 @@ exports.findBookById = function(req, res) {
   });
 };
 
-exports.updateBook = function(req, res) {
-  Book.findById(req.params._id, function(err, book) {
+exports.updateBook = (req, res) => {
+  Book.findById(req.params._id, (err, book) => {
     if (err)
       res.send(err);
 
@@ -45,7 +45,7 @@ exports.updateBook = function(req, res) {
     book.isbn = req.body.isbn;
     book.genre = req.body.genre;
 
-    book.save(function(err) {
+    book.save((err) => {
       if (err)
         res.send(err);
 
@@ -54,10 +54,10 @@ exports.updateBook = function(req, res) {
   });
 };
 
-exports.deleteBook = function(req, res) {
+exports.deleteBook = (req, res) => {
   Book.remove({
     _id: req.params._id
-  }, function(err, book) {
+  }, (err, book) => {
     if (err)
       res.send(err);
 
