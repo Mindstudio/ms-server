@@ -1,7 +1,7 @@
 // ---------------------------------------------------- Base Config
 
-const config = require('./config/config');
-const app = require('./config/express');
-const db = require('./config/database');
+const config = require('./server/config/config');
+const app = require('./server/config/express');
+const db = require('./server/config/database');
 
 module.exports = app;
