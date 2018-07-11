@@ -5,6 +5,13 @@ const books = require('./lib/book/book.index')
 const authors = require('./dir/author/author.index')
 const genres = require('./dir/genre/genre.index')
 
+// const routeHandler = (req, res, next) => {
+//   res.json({
+//     status: 'success',
+//     data: req.body
+//   })
+// };
+
 // Middleware for all requests
 routes.use((req, res, next) => {
   // TODO: add middleware = logs, analytics, auth, etc
