@@ -21,6 +21,7 @@ exports.findBooks = (req, res) => {
     if (err)
       res.send(err);
 
+    res.status(200);
     res.json(books);
   });
 };

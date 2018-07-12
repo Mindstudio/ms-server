@@ -11,8 +11,12 @@ const logger = require('morgan');
 const port = config.port || 3000;
 const env = config.env;
 
-// Configure morgan as error logger
-app.use(logger('dev'));
+
+
+if (config.env !== 'test') {
+  // Configure morgan as error logger
+  app.use(logger('dev'));
+}
 
 // Configure app to parse body params
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -25,7 +29,7 @@ app.use(helmet());
 app.use(cors());
 
 // ---------------------------------------------------- Router Config
-const routes = require('../index.routes');
+const routes = require('../server/index.routes');
 
 // express test route | fallback test if index test route fails
 routes.get('/test', (req, res) => {

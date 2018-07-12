@@ -28,7 +28,7 @@ routes.get('/test', (req, res) => {
   res.json({ message: 'Mindstudio API: index test route'});
 });
 
-// Test router
+// Status router
 routes.get('/status', (req, res) => {
   res.json({ message: 'Mindstudio API: Status Report '});
 });
