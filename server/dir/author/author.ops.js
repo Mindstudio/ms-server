@@ -9,34 +9,34 @@ exports.createAuthor = (req, res) => {
 
   author.save((err) => {
     if (err)
-      res.send(err);
+      res.status(400).send(err);
 
-    res.json({ success: true, message: 'Author created.' });
+    res.status(200).json({ success: true, message: 'Author created.' });
   });
 };
 
 exports.findAuthors = (req, res) => {
   Author.find((err, authors) => {
     if (err)
-      res.send(err);
+      res.status(400).send(err);
 
-    res.json(authors);
+    res.status(200).json(authors);
   });
 };
 
 exports.findAuthorById = (req, res) => {
   Author.findById(req.params._id, (err, author) => {
     if (err)
-      res.send(err);
+      res.status(400).send(err);
 
-    res.json(author);
+    res.status(200).json(author);
   });
 };
 
 exports.updateAuthor = (req, res) => {
   Author.findById(req.params._id, (err, author) => {
     if (err)
-      res.send(err);
+      res.status(400).send(err);
 
     author.first_name = req.body.first_name;
     author.last_name = req.body.last_name;
@@ -45,9 +45,9 @@ exports.updateAuthor = (req, res) => {
 
     author.save((err) => {
       if (err)
-        res.send(err);
+        res.status(400).send(err);
 
-      res.json({ success: true, message: 'Author updated.'});
+      res.status(200).json({ success: true, message: 'Author updated.'});
     });
   });
 };
@@ -57,8 +57,8 @@ exports.deleteAuthor = (req, res) => {
     _id: req.params._id
   }, (err, author) => {
     if (err)
-      res.send(err);
+      res.status(400).send(err);
 
-    res.json({ success: true, message: 'Author deleted.'})
+    res.status(200).json({ success: true, message: 'Author deleted.'})
   })
 };

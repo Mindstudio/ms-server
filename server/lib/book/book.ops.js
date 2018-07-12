@@ -10,35 +10,34 @@ exports.createBook = (req, res) => {
 
   book.save((err) => {
     if (err)
-      res.send(err);
+      res.status(400).send(err);
 
-    res.json({ success: true, message: 'Book created.' });
+    res.status(201).json({ success: true, message: 'Book created.' });
   });
 };
 
 exports.findBooks = (req, res) => {
   Book.find((err, books) => {
     if (err)
-      res.send(err);
+      res.status(400).send(err);
 
-    res.status(200);
-    res.json(books);
+    res.status(200).json(books);
   });
 };
 
 exports.findBookById = (req, res) => {
   Book.findById(req.params._id, (err, book) => {
     if (err)
-      res.send(err);
+      res.status(400).send(err);
 
-    res.json(book);
+    res.status(200).json(book);
   });
 };
 
 exports.updateBook = (req, res) => {
   Book.findById(req.params._id, (err, book) => {
     if (err)
-      res.send(err);
+      res.status(400).send(err);
 
     book.title = req.body.title;
     book.author = req.body.author;
@@ -48,9 +47,9 @@ exports.updateBook = (req, res) => {
 
     book.save((err) => {
       if (err)
-        res.send(err);
+        res.status(400).send(err);
 
-      res.json({ success: true, message: 'Book updated.'});
+      res.status(200).json({ success: true, message: 'Book updated.'});
     });
   });
 };
@@ -60,8 +59,8 @@ exports.deleteBook = (req, res) => {
     _id: req.params._id
   }, (err, book) => {
     if (err)
-      res.send(err);
+      res.status(400).send(err);
 
-    res.json({ success: true, message: 'Book deleted.'})
+    res.status(200).json({ success: true, message: 'Book deleted.'})
   })
 };

@@ -6,42 +6,42 @@ exports.createGenre = (req, res) => {
 
   genre.save((err) => {
     if (err)
-      res.send(err);
+      res.status(400).send(err);
 
-    res.json({ success: true, message: 'Genre created.' });
+    res.status(200).json({ success: true, message: 'Genre created.' });
   });
 };
 
 exports.findGenres = (req, res) => {
   Genre.find((err, genres) => {
     if (err)
-      res.send(err);
+      res.status(400).send(err);
 
-    res.json(genres);
+    res.status(200).json(genres);
   });
 };
 
 exports.findGenreById = (req, res) => {
   Genre.findById(req.params._id, (err, genre) => {
     if (err)
-      res.send(err);
+      res.status(400).send(err);
 
-    res.json(genre);
+    res.status(200).json(genre);
   });
 };
 
 exports.updateGenre = (req, res) => {
   Genre.findById(req.params._id, (err, genre) => {
     if (err)
-      res.send(err);
+      res.status(400).send(err);
 
     genre.name = req.body.name;
 
     genre.save((err) => {
       if (err)
-        res.send(err);
+        res.status(400).send(err);
 
-      res.json({ success: true, message: 'Genre updated.'});
+      res.status(200).json({ success: true, message: 'Genre updated.'});
     });
   });
 };
@@ -51,8 +51,8 @@ exports.deleteGenre = (req, res) => {
     _id: req.params._id
   }, (err, genre) => {
     if (err)
-      res.send(err);
+      res.status(400).send(err);
 
-    res.json({ success: true, message: 'Genre deleted.'})
+    res.status(200).json({ success: true, message: 'Genre deleted.'})
   })
 };
