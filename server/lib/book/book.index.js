@@ -13,16 +13,15 @@ books.use((req, res, next) => {
 });
 
 // ------------------------- /books
-books.route('/').post(ops.createBook);
-
-books.route('/').get(ops.findBooks);
+books.route('/')
+  .post(ops.createBook)
+  .get(ops.findBooks);
 
 // ------------------------- /books/:book_id
-books.route('/book/:_id').get(ops.findBookById);
-
-books.route('/book/:_id').put(ops.updateBook);
-
-books.route('/book/:_id').delete(ops.deleteBook);
+books.route('/book/:_id')
+  .get(ops.findBookById)
+  .put(ops.updateBook)
+  .delete(ops.deleteBook);
 
 // ------------------------- Test route
 books.get('/test', (req, res) => {

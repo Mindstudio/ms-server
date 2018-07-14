@@ -14,16 +14,15 @@ authors.use((req, res, next) => {
 });
 
 // ------------------------- /authors
-authors.route('/').post(ops.createAuthor);
-
-authors.route('/').get(ops.findAuthors);
+authors.route('/')
+  .post(ops.createAuthor)
+  .get(ops.findAuthors);
 
 // ------------------------- /authors/:author_id
-authors.route('/author/:_id').get(ops.findAuthorById);
-
-authors.route('/author/:_id').put(ops.updateAuthor);
-
-authors.route('/author/:_id').delete(ops.deleteAuthor);
+authors.route('/author/:_id')
+  .get(ops.findAuthorById)
+  .put(ops.updateAuthor)
+  .delete(ops.deleteAuthor);
 
 // ------------------------- author test route
 authors.get('/test', (req, res) => {

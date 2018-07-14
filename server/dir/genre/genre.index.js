@@ -14,16 +14,15 @@ genres.use((req, res, next) => {
 });
 
 // ------------------------- /genres
-genres.route('/').post(ops.createGenre);
-
-genres.route('/').get(ops.findGenres);
+genres.route('/')
+  .post(ops.createGenre)
+  .get(ops.findGenres);
 
 // ------------------------- /genres/:genre_id
-genres.route('/genre/:_id').get(ops.findGenreById);
-
-genres.route('/genre/:_id').put(ops.updateGenre);
-
-genres.route('/genre/:_id').delete(ops.deleteGenre);
+genres.route('/genre/:_id')
+  .get(ops.findGenreById)
+  .put(ops.updateGenre)
+  .delete(ops.deleteGenre);
 
 // ------------------------- Test route
 genres.get('/test', (req, res) => {
