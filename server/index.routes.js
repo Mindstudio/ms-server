@@ -19,7 +19,7 @@ routes.use((req, res, next) => {
   next();
 });
 
-routes.get('/', (req, res) => {
+routes.get('/', (req, res, next) => {
   res.json({ message: 'Connected to API!'});
 });
 
