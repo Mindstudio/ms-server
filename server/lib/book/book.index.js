@@ -20,6 +20,7 @@ books.route('/')
 // ------------------------- /books/:book_id
 books.route('/book/:_id')
   .get(ops.findBookById)
+  .put(ops.publishBook)
   .put(ops.updateBook)
   .delete(ops.deleteBook);
 
