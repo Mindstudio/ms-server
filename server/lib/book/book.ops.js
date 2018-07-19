@@ -36,45 +36,41 @@ exports.findBookById = (req, res) => {
   });
 };
 
-exports.publishBook = (req, res) => {
-  Book.findById(req.params._id, (err, book) => {
-    if (err) {
-      return res.status(400).send(err);
-    } else {
-      book.status = !book.status
-    }
-
-    book.save((err) => {
-      if (err) {
-        return res.status(400).send(err);
-      } else {
-        console.log('publishBook.ops book.save');
-        res.status(200).json({ success: true, message: 'Book published'});
-      }
-    })
-  })
-}
-
 exports.updateBook = (req, res) => {
   Book.findById(req.params._id, (err, book) => {
     if (err) {
-      return res.status(400).send(err);
+      return res.status(401).send(err);
     } else {
       book.title = req.body.title;
       book.author = req.body.author;
       book.summary = req.body.summary;
       book.isbn = req.body.isbn;
       book.genre = req.body.genre;
-      book.status = req.book.status;
     }
 
     book.save((err) => {
       if (err) {
-        return res.status(400).send(err);
+        return res.status(402).send(err);
       } else {
         console.log('updateBook ops book.save');
         res.status(200).json({ success: true, message: 'Book updated.'});
       }
+    });
+  });
+};
+
+exports.publishBook = (req, res) => {
+  Book.findById(req.params._id, (book) => {
+    book.title = req.body.title;
+    book.author = req.body.author;
+    book.summary = req.body.summary;
+    book.isbn = req.body.isbn;
+    book.genre = req.body.genre;
+    book.status = !book.status;
+
+    book.save(() => {
+      console.log('publishBook.ops book.save');
+      res.status(200).json({ success: true, message: 'Book published'});
     });
   });
 };
