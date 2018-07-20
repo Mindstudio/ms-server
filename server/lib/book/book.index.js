@@ -23,10 +23,6 @@ books.route('/book/:_id')
   .put(ops.updateBook)
   .delete(ops.deleteBook);
 
-books.route('/book/:_id')
-  .put(ops.publishBook);
-
-
 // ------------------------- Test route
 books.get('/test', (req, res) => {
   res.json({ message: 'Mindstudio API: books test route'});

@@ -8,7 +8,7 @@ const BookSchema = new Schema(
     summary: {type: String, required: true},
     isbn: {type: String, required: true},
     genre: [{type: Schema.ObjectId, ref: 'Genre'}],
-    status: {type: Boolean, required: true, default: false}
+    status: {type: Boolean, required: true, default: true}
   }
 );
 

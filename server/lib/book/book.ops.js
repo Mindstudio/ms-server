@@ -46,6 +46,7 @@ exports.updateBook = (req, res) => {
       book.summary = req.body.summary;
       book.isbn = req.body.isbn;
       book.genre = req.body.genre;
+      book.status = req.body.status;
     }
 
     book.save((err) => {
@@ -55,22 +56,6 @@ exports.updateBook = (req, res) => {
         console.log('updateBook ops book.save');
         res.status(200).json({ success: true, message: 'Book updated.'});
       }
-    });
-  });
-};
-
-exports.publishBook = (req, res) => {
-  Book.findById(req.params._id, (book) => {
-    book.title = req.body.title;
-    book.author = req.body.author;
-    book.summary = req.body.summary;
-    book.isbn = req.body.isbn;
-    book.genre = req.body.genre;
-    book.status = !book.status;
-
-    book.save(() => {
-      console.log('publishBook.ops book.save');
-      res.status(200).json({ success: true, message: 'Book published'});
     });
   });
 };
