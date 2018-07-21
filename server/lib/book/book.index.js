@@ -19,7 +19,7 @@ books.route('/')
 
 // ------------------------- /books/:book_id
 books.route('/book/:_id')
-  // .get(ops.findBookById)
+  .get(ops.findBookById)
   .put(ops.updateBook)
   .delete(ops.deleteBook);
 

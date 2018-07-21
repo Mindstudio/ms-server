@@ -41,7 +41,7 @@ exports.findBookById = (req, res) => {
 exports.updateBook = (req, res) => {
   Book.findById(req.params._id, (err, book) => {
     if (err) {
-      return res.status(400).send(err);
+      return res.status(401).send(err);
     } else {
       book.title = req.body.title;
       book.author = req.body.author;
@@ -53,7 +53,7 @@ exports.updateBook = (req, res) => {
 
     book.save((err) => {
       if (err) {
-        return res.status(400).send(err);
+        return res.status(402).send(err);
       } else {
         return res.status(200).json({ success: true, message: 'Book updated.'});
       }
